@@ -1,0 +1,7 @@
+chatbot/__pycache__
+.streamlit/secrets.toml
+.env
+.venv
+.DS_Store
+.vscode
+baocao.txt

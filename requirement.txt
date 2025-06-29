@@ -1,0 +1,17 @@
+langchain
+langchain-neo4j
+langchain-openai
+langgraph
+python-dotenv
+neo4j
+tenacity
+openai
+streamlit
+langchainhub
+datasets
+fpdf
+pypdf
+pydantic
+pydantic_core
+langchain-community
+langchain-experimental
