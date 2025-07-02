@@ -71,13 +71,23 @@ prompt = ChatPromptTemplate.from_messages(
         ("human", "{input}"),
     ]
 )
-
+# Biến Neo4jVector thành một retriever để truy xuất các đoạn văn bản (chunks) gần giống với câu hỏi
 chunk_retriever = chunk_vector.as_retriever()
+
+# Tạo "Stuff Documents Chain":
+# - Lấy các chunk truy xuất được từ retriever
+# - Nhét toàn bộ chunk + câu hỏi vào prompt
+# - Gửi cho LLM để sinh câu trả lời
 chunk_chain = create_stuff_documents_chain(llm, prompt)
+
+# Tạo retrieval pipeline đầy đủ:
+# - Từ câu hỏi người dùng → tìm các chunk liên quan bằng vector search
+# - → truyền vào LLM để trả lời dựa trên ngữ cảnh
 chunk_retriever = create_retrieval_chain(
-    chunk_retriever, 
-    chunk_chain
+    chunk_retriever,   # retriever: lấy chunk theo ngữ nghĩa
+    chunk_chain        # chain: prompt + llm sinh câu trả lời
 )
+
 
 def find_chunk(q):
     return chunk_retriever.invoke({"input": q})

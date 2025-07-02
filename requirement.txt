@@ -15,3 +15,5 @@ pydantic
 pydantic_core
 langchain-community
 langchain-experimental
+scikit-learn 
+newspaper3k
