@@ -59,7 +59,7 @@ def load_pdf(file_path):
     return pages
 
 # Đọc file PDF
-pdf_file_path = "data/Apple stock during pandemic.pdf"  # Thay đổi đường dẫn file PDF
+pdf_file_path = "../data/Apple stock during pandemic.pdf"  # Thay đổi đường dẫn file PDF
 pages = load_pdf(pdf_file_path)
 
 # Khởi tạo đối tượng CreateChunksofDocument
@@ -67,7 +67,7 @@ document_chunker = CreateChunksofDocument(pages=pages)
 
 # Tách tài liệu thành các chunks
 chunks = document_chunker.split_file_into_chunks(token_chunk_size=500, chunk_overlap=100)
-print(f"Total number of chunks: {len(chunks)}")
+# print(f"Total number of chunks: {len(chunks)}")
 
 # Hiển thị các chunk
 # for chunk in chunks:

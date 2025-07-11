@@ -5,3 +5,4 @@ chatbot/__pycache__
 .DS_Store
 .vscode
 baocao.txt
+chatbot/tools/__pycache__
